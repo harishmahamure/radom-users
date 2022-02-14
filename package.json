@@ -25,7 +25,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "precommit:lint":"eslint"
+    "precommit:lint":"eslint",
+    "postinstall": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "npm run lint"
