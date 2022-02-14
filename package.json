@@ -23,16 +23,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --cache \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "eslint --cache --fix \"src/**/*.{js,jsx,ts,tsx}\""
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "precommit:lint":"eslint"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "npm run lint:fix"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "npm run lint:fix"
   },
   "eslintConfig": {
     "extends": [
