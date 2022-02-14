@@ -25,7 +25,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "precommit:lint":"eslint",
+    "precommit:lint": "eslint",
     "postinstall": "husky install"
   },
   "lint-staged": {
@@ -34,7 +34,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push":"npm run lint:fix"
+      "pre-push": "npm run lint:fix"
     }
   },
   "eslintConfig": {
@@ -66,7 +66,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "husky": "^7.0.4",
+    "husky": "4",
     "lint-staged": "^12.3.4",
     "prettier": "^2.5.1"
   }
