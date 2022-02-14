@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Card } from "./components";
-
+import HomeScreen from "./containers";
+import "./index.css";
 ReactDOM.render(
   <React.StrictMode>
-    <Card />
+    <HomeScreen />
   </React.StrictMode>,
   document.getElementById("root")
 );
