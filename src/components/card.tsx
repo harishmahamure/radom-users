@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
-
-const Card = (props: Props) => {
-  return (
-    <div>Card</div>
-  )
-}
+const Card = () => {
+  return <div>Card</div>;
+};
 
 export default Card;

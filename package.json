@@ -28,11 +28,12 @@
     "precommit:lint":"eslint"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "npm run lint:fix"
+    "*.{js,jsx,ts,tsx}": "npm run lint"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push":"npm run lint:fix"
     }
   },
   "eslintConfig": {
