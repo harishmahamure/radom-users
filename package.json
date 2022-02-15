@@ -29,8 +29,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "precommit:lint": "eslint",
-    "prepare": "husky install",
-    "postbuild": "react-snap"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "npm run lint"
