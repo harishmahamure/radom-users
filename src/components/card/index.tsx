@@ -2,6 +2,10 @@ import * as React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import "./card.css";
 
+interface Notication {
+  show: boolean;
+  message: string;
+}
 interface CardProps {
   url: string;
   altTag: string;
@@ -10,6 +14,9 @@ interface CardProps {
   location: string;
   password: string;
   name: string;
+  addFriend: () => void;
+  cancelRequest: () => void;
+  showNotification: Notication;
 }
 const Card: React.FC<CardProps> = ({
   url,
@@ -19,10 +26,12 @@ const Card: React.FC<CardProps> = ({
   location,
   password,
   name,
+  addFriend,
+  cancelRequest,
+  showNotification,
 }) => {
   const x = useMotionValue(0);
   const xInput = [-100, 0, 100];
-
   const background = useTransform(x, xInput, [
     "linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%)",
     "linear-gradient(180deg, #7700ff 0%, rgb(68, 0, 255) 100%)",
@@ -30,12 +39,24 @@ const Card: React.FC<CardProps> = ({
   ]);
 
   return (
-    <motion.div className="example-container" style={{ background }}>
+    <motion.div className="container" style={{ background }}>
       <motion.div
+        whileHover={{
+          scale: 1.1,
+          transition: { duration: 0.5 },
+        }}
+        whileTap={{ scale: 0.9 }}
         className="box"
         style={{ x }}
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
+        onDragEnd={(e, info) => {
+          if (info.offset.x > 200) {
+            addFriend();
+          } else if (info.offset.x < -200) {
+            cancelRequest();
+          }
+        }}
       >
         <div className="head">
           <img
@@ -68,6 +89,26 @@ const Card: React.FC<CardProps> = ({
           </div>
         </div>
       </motion.div>
+      {showNotification.show && (
+        <motion.div
+          animate={{ y: -50 }}
+          style={{
+            background: "white",
+            maxWidth: 320,
+            minWidth: 240,
+            borderRadius: 20,
+            height: 50,
+            position: "absolute",
+            bottom: 20,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          transition={{ ease: "easeOut", duration: 2 }}
+        >
+          <p style={{ padding: 20 }}>Send Request to ❤️ {name}</p>
+        </motion.div>
+      )}
     </motion.div>
   );
 };
