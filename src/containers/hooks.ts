@@ -1,3 +1,4 @@
+import { useLiveQuery } from "dexie-react-hooks";
 import { useEffect, useState } from "react";
 import { getProfileData } from "../api/api";
 import { Result, RootObject } from "../common/interfaces";
@@ -33,6 +34,8 @@ export const useProfile = () => {
     }, 3000);
   };
 
+  const friends = useLiveQuery(() => db.friends.toArray())?.length;
+
   const cancelRequest = () => {
     setCount(count + 1);
   };
@@ -42,5 +45,6 @@ export const useProfile = () => {
     addFriend,
     cancelRequest,
     showNotification,
+    requests: friends,
   };
 };

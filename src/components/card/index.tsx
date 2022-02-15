@@ -17,6 +17,7 @@ interface CardProps {
   addFriend: () => void;
   cancelRequest: () => void;
   showNotification: Notication;
+  requests: number;
 }
 const Card: React.FC<CardProps> = ({
   url,
@@ -29,6 +30,7 @@ const Card: React.FC<CardProps> = ({
   addFriend,
   cancelRequest,
   showNotification,
+  requests,
 }) => {
   const x = useMotionValue(0);
   const xInput = [-100, 0, 100];
@@ -37,9 +39,13 @@ const Card: React.FC<CardProps> = ({
     "linear-gradient(180deg, #7700ff 0%, rgb(68, 0, 255) 100%)",
     "linear-gradient(180deg, rgb(230, 255, 0) 0%, rgb(3, 209, 0) 100%)",
   ]);
-
   return (
     <motion.div className="container" style={{ background }}>
+      <h2 style={{ paddingBottom: 30, color: "white", textAlign: "center" }}>
+        {requests <= 0
+          ? `Don't stop! swipe right now ❤️`
+          : `Added ${requests} 👫 total`}
+      </h2>
       <motion.div
         whileHover={{
           scale: 1.1,
@@ -87,6 +93,10 @@ const Card: React.FC<CardProps> = ({
               <p className="info-text">{password}</p>
             </div>
           </div>
+          <hr></hr>
+          <p style={{ textAlign: "center", paddingTop: 5 }}>
+            Swipe right to add me
+          </p>
         </div>
       </motion.div>
       {showNotification.show && (

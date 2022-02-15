@@ -7,6 +7,7 @@ const Home = () => {
     addFriend,
     cancelRequest,
     showNotification,
+    requests = 0,
   } = useProfile();
   const {
     dob,
@@ -37,6 +38,7 @@ const Home = () => {
         addFriend={addFriendWrapper}
         cancelRequest={cancelRequest}
         showNotification={showNotification}
+        requests={requests}
       />
     </>
   );
