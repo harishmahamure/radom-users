@@ -54,7 +54,7 @@ const Card: React.FC<CardProps> = ({
           <hr></hr>
           <div className="horizontal-list">
             <div className="horizontal-list-item">
-              <h2 className="emoji">🍼</h2>
+              <h2 className="emoji">🎂</h2>
               <p className="info-text">{dob}</p>
             </div>
             <div className="horizontal-list-item">

@@ -27,7 +27,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "precommit:lint": "eslint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postbuild": "react-snap"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "npm run lint"
@@ -69,6 +70,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.4",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "react-snap": "^1.23.0"
   }
 }
